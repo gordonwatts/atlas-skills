@@ -68,6 +68,17 @@ Steps:
 
 Use `rucio download --help` if you need RSE or destination options.
 
+Notes:
+
+- For long downloads, use a longer timeout (10 or 30 minutes):
+  - `timeout 10m rucio download <scope>:<file>`
+  - `timeout 30m rucio download <scope>:<file>`
+- To run a download in the background with a log:
+  - `nohup timeout 30m rucio download <scope>:<file> > /tmp/rucio_download_<tag>.log 2>&1 &`
+  - Check progress: `tail -n 50 /tmp/rucio_download_<tag>.log`
+- If the user asks whether the transfer started, check network activity (fallback when `ss` is unavailable):
+  - `lsof -nP -iTCP | rg -i "xrootd|rucio|1094"`
+
 ## References
 
 See `references/rucio-cli.md` for a concise CLI cheat sheet and common flags.
