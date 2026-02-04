@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rucio ATLAS"
+  short_description: "Rucio ATLAS CLI: list datasets, create containers"
+  default_prompt: "Use the rucio CLI to manage ATLAS datasets and containers. Verify auth first; if X.509/auth fails, stop and ask the user to fix it."
