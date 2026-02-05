@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analysisbase Releases"
+  short_description: "List newest AnalysisBase container tags"
+  default_prompt: "Use $analysisbase-releases to list the most recent analysisbase container tags."
