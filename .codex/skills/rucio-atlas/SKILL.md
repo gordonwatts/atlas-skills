@@ -9,14 +9,25 @@ description: Rucio ATLAS dataset management via the `rucio` CLI. Use when a user
 
 Use this skill to run ATLAS Rucio CLI commands for listing scopes/datasets, creating containers, attaching datasets, and downloading files. Always stop and tell the user to fix authentication if any Rucio command fails due to missing/expired X.509 credentials.
 
+The rucio data model has datasets and containers. Datasets contain files, and containers contain datasets. Both datasets and containers are identified by DIDs (Data Identifiers) with the format `<scope>:<name>`. The scope is a namespace that helps organize data, and the name is the unique identifier within that scope. For almost all uses, containers and datasets can be treated as the same.
+
 ## Quick Start
 
 1. Confirm `rucio` CLI is available. If not, stop and ask the user to fix their environment. The `rucio ping` is an effective way to test everything is working.
-3. Proceed with the requested task using the task sections below.
+2. Proceed with the requested task using the task sections below.
 
 If authentication fails, do not retry. Tell the user to obtain/refresh their X.509 cert and re-run.
 
 ## Tasks
+
+### Count Files in a Dataset or Container
+
+Use this when a user asks “how many files are in <DID>”.
+
+Steps:
+
+1. Count files directly (works for DATASET or CONTAINER):
+   - `rucio list-files --csv <scope>:<did> | wc -l`
 
 ### List Scopes or Datasets (Search)
 
